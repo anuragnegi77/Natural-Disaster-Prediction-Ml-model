@@ -1,0 +1,90 @@
+════════════════════════════════════════════════════════════════
+  🌍 DISASTERSCOPE - HOW TO START THE APPLICATION
+════════════════════════════════════════════════════════════════
+
+IMPORTANT: You MUST start the Flask server BEFORE opening the web app!
+
+STEP 1: START THE SERVER
+────────────────────────────────────────────────────────────────
+  
+  Method 1 (Easiest):
+    → Double-click: start_server.bat
+  
+  Method 2 (Command Prompt):
+    → Open Command Prompt or PowerShell
+    → Type: python app.py
+    → Press Enter
+  
+  Method 3 (PowerShell):
+    → Right-click start_server.ps1
+    → Select "Run with PowerShell"
+
+  ✅ You should see:
+     "🌍 DisasterScope API Server Starting..."
+     "Running on http://127.0.0.1:5000"
+  
+  ⚠️ KEEP THIS WINDOW OPEN while using the app!
+
+
+STEP 2: OPEN THE WEB APPLICATION
+────────────────────────────────────────────────────────────────
+  
+  1. Open your web browser (Chrome, Firefox, Edge, etc.)
+  
+  2. Go to this address:
+     http://127.0.0.1:5000
+     
+     OR
+     
+     http://localhost:5000
+  
+  3. You should see the map interface
+
+
+STEP 3: USE THE APPLICATION
+────────────────────────────────────────────────────────────────
+  
+  1. Click anywhere on the map
+  2. See disaster risk predictions appear
+  3. Click "Reset Map" to clear predictions
+
+
+════════════════════════════════════════════════════════════════
+  ❌ IF YOU SEE "Cannot connect to server" ERROR:
+════════════════════════════════════════════════════════════════
+
+  1. Make sure Flask server is running (Step 1 above)
+  2. Check that you see "Running on http://127.0.0.1:5000" message
+  3. Don't close the server window!
+  4. Make sure you opened: http://127.0.0.1:5000
+     (NOT opening index.html directly as a file)
+
+
+════════════════════════════════════════════════════════════════
+  🔧 TROUBLESHOOTING
+════════════════════════════════════════════════════════════════
+
+  Problem: "python app.py" says "command not found"
+  Solution: Install Python from python.org
+  
+  Problem: "No module named flask"
+  Solution: Run: pip install flask flask-cors pandas scikit-learn numpy
+  
+  Problem: Port 5000 already in use
+  Solution: Change port in app.py (last line) to 5001, then update main.js
+  
+  Problem: Models not found
+  Solution: Make sure models/ folder has .pkl files
+
+
+════════════════════════════════════════════════════════════════
+  📞 QUICK TEST
+════════════════════════════════════════════════════════════════
+
+  Test if server is running:
+  → Open browser and go to: http://127.0.0.1:5000/health
+  → Should see: {"status": "healthy", "models_loaded": true}
+
+
+════════════════════════════════════════════════════════════════
+

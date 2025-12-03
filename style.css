@@ -1,0 +1,214 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+  color: #ddd;
+}
+
+h1 {
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #043e27;
+  text-shadow:
+    0 0 10px #00ff99,
+    0 0 20px #00ff99,
+    0 0 30px #00ff99,
+    0 0 40px #00ff99,
+    0 0 50px #00ff99;
+  animation: fadeGlow 4s ease-in-out infinite;
+}
+
+
+@keyframes fadeGlow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #00ff99,
+      0 0 20px #00ff99,
+      0 0 30px #00ff99,
+      0 0 40px #00ff99,
+      0 0 50px #00ff99;
+  }
+  50% {
+    opacity: 0.6;
+    text-shadow:
+      0 0 6px #00ff99,
+      0 0 12px #00ff99,
+      0 0 18px #00ff99;
+  }
+}
+
+#map {
+  height: 500px;
+  width: 90%;
+  margin: 0 auto 20px auto;
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ff99aa;
+}
+
+
+.dashboard {
+  width: 90%;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #111; 
+  border-radius: 12px;
+  padding: 20px;
+  transition: background-color 0.7s ease;
+  box-shadow: 0 0 25px #00ff99aa;
+}
+
+
+.bar {
+  width: 100px;
+  height: 160px;
+  background: #222;
+  border-radius: 12px;
+  padding: 15px 10px 10px 10px;
+  box-shadow: inset 0 0 10px #00ff9955;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  cursor: default;
+  transition: transform 0.3s ease;
+  overflow: visible;
+}
+.bar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ff99bb;
+}
+
+
+.bar-fill {
+  width: 60%;
+  background: #00ff99;
+  border-radius: 6px 6px 0 0;
+  transition: height 1s ease, background-color 0.5s ease;
+  height: 0;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 8px #00ff9955;
+  min-height: 0;
+  position: relative;
+}
+
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px 4px rgba(255, 0, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 15px 8px rgba(255, 0, 0, 1);
+  }
+}
+.glow {
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+
+.bar-label {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #00ff99;
+  font-size: 1.1rem;
+  user-select: none;
+}
+.bar-count {
+  font-size: 0.85rem;
+  color: #aaa;
+  position: absolute;
+  bottom: 8px;
+  user-select: none;
+}
+
+
+#reset-btn {
+  background-color: #00ff99;
+  border: none;
+  color: #111;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ff99bb;
+  margin-bottom: 40px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#reset-btn:hover {
+  background-color: #00cc77;
+  transform: scale(1.05);
+}
+
+/* Risk badges */
+.risk-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.risk-high {
+  background-color: #ff4444;
+  color: white;
+}
+
+.risk-medium {
+  background-color: #ffa500;
+  color: #111;
+}
+
+.risk-low {
+  background-color: #00ff99;
+  color: #111;
+}
+
+.risk-very-low {
+  background-color: #00ff99;
+  color: #111;
+  opacity: 0.7;
+}
+
+.overall-risk {
+  text-align: center;
+}
+
+.risk-message {
+  text-align: center;
+  font-style: italic;
+  min-height: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 95%;
+  }
+  .bar {
+    width: 70%;
+    max-width: 250px;
+    height: 140px;
+  }
+  #map {
+    width: 95%;
+    height: 350px;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+  #reset-btn {
+    width: 90%;
+  }
+}

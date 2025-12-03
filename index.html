@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DisasterScope – Natural Disaster Predictor</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🌍 DisasterScope – Natural Disaster Predictor</h1>
+  
+  <!-- Server Status Indicator -->
+  <div id="server-status" style="display: none; position: fixed; top: 10px; right: 10px; padding: 10px; background: #ff4444; color: white; border-radius: 5px; z-index: 10000;">
+    ⚠️ Server not connected. Please start Flask server first!
+  </div>
+
+  <!-- Location Display -->
+  <div id="location-display" style="display: none; position: fixed; top: 10px; left: 10px; padding: 8px 15px; background: rgba(0, 255, 153, 0.2); color: #00ff99; border-radius: 5px; z-index: 1000; font-size: 0.9rem; backdrop-filter: blur(5px);">
+    📍 No location selected
+  </div>
+
+  <!-- Overall Risk Display -->
+  <div id="risk-summary" style="display: none; margin: 10px auto; max-width: 600px; padding: 15px; background: rgba(17, 17, 17, 0.9); border-radius: 10px; border: 1px solid #00ff99;">
+    <div id="overall-risk" class="overall-risk" style="font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; color: #00ff99;"></div>
+    <div id="overall-message" style="font-size: 0.9rem; color: #aaa;"></div>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="bar" id="bar-eq" title="Earthquake risk level. Click map for updates.">
+      <div class="bar-fill" id="fill-eq"></div>
+      <div class="bar-label">🌍 Earthquake <span id="risk-eq" class="risk-badge" style="font-size: 0.7rem; margin-left: 5px;"></span></div>
+      <div class="bar-count" id="count-eq">0 nearby</div>
+      <div id="message-eq" class="risk-message" style="font-size: 0.75rem; color: #888; margin-top: 5px;"></div>
+    </div>
+    <div class="bar" id="bar-flood" title="Flood risk level. Click map for updates.">
+      <div class="bar-fill" id="fill-flood"></div>
+      <div class="bar-label">🌊 Flood <span id="risk-flood" class="risk-badge" style="font-size: 0.7rem; margin-left: 5px;"></span></div>
+      <div class="bar-count" id="count-flood">0 nearby</div>
+      <div id="message-flood" class="risk-message" style="font-size: 0.75rem; color: #888; margin-top: 5px;"></div>
+    </div>
+    <div class="bar" id="bar-fire" title="Wildfire risk level. Click map for updates.">
+      <div class="bar-fill" id="fill-fire"></div>
+      <div class="bar-label">🔥 Wildfire <span id="risk-fire" class="risk-badge" style="font-size: 0.7rem; margin-left: 5px;"></span></div>
+      <div class="bar-count" id="count-fire">0 nearby</div>
+      <div id="message-fire" class="risk-message" style="font-size: 0.75rem; color: #888; margin-top: 5px;"></div>
+    </div>
+  </div>
+
+  <!-- Reset Button -->
+  <button id="reset-btn">Reset Map</button>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Custom JS -->
+  <script src="main.js"></script>
+</body>
+</html>
